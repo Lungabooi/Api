@@ -4,7 +4,7 @@ const con = require("../lib/db_connection");
 
 router.get("/", (req, res) => {
     try {
-        con.query("SELECT * FROM users", (err, result) => {
+        con.query(`SELECT * FROM users`, (err, result) => {
             if (err) throw err;
             res.send(result);
         });
@@ -15,11 +15,10 @@ router.get("/", (req, res) => {
 });
  
 router.post('/', (req, res)=> {
-    const {email, password, full_name, billing_address, dafault_shipping_address, country, phone, user_type,}= req.body
-});
+    const {email, password, full_name, billing_address, default_shipping_address, country, phone, user_type,}= req.body
     try{
         con.query( 
-            `INSERT INTO users ('${email}', '${password}', '${full_name}', '${billing_address}', '${default_shipping_address}', '${country}', '${phone}', '${user_type}'
+            `INSERT INTO users (email, password, full_name, billing_address, default_shipping_address, country, phone, user_type) values('${email}', '${password}', '${full_name}', '${billing_address}', '${default_shipping_address}', '${country}', '${phone}', '${user_type}'
         )`, 
             (err, result) => {
             if (err) throw err;
@@ -28,7 +27,8 @@ router.post('/', (req, res)=> {
         
     } catch (error) {
         console.log(error)
-        
+        res.status(400).json({msg: error})
     };
+});
 
 module.exports = router;
