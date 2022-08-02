@@ -6,6 +6,9 @@ app.set("port", process.env.PORT || 6969); // Set the port
 app.use(express.json()); // Enable the server to handle JSON requests
 app.use(cors()); // Dont let local development give errors
 
+// connecting my index.html 
+app.use(express.static('public'))
+
 // Import routes
 const userRoute = require("./routes/userRoute");
 const categoriesRoute = require("./routes/categoriesRoute");
@@ -14,7 +17,7 @@ const ordersRoute = require("./routes/ordersRoute");
 
 
 app.get("/", (req, res) => {
-    res.json({ msg: "Welcome" });
+    res.sendFile(__dirname + "/" + ".html")
 });
 
 app.use("/users", userRoute);
