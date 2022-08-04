@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 //     res.sendFile(__dirname + "/login" + ".html")
 // });
 app.get("/login", (req, res) => {
-    res.sendFile(path.join(__dirname + "/login.html"))
+    res.sendFile(__dirname + "/" + "/login.html")
 });
 
 app.use("/users", userRoute);
