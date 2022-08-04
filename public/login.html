@@ -10,8 +10,9 @@
 <body><div class="login">
 	<h1>Login</h1>
     <form>
+        <a href="/products"></a>
     	<input type="text"  id="email" name="email" placeholder="email" autocomplete="off" required="required" />
-        <input type="text" id="password" name="password" placeholder="Password"  autocpmplete= "off"required="required" />
+        <input type="text" id="password" name="password" placeholder="Password"  autocpmplete= "off" required="required" />
         <button type="button" id="go" class="btn btn-primary btn-block btn-large">Login.</button>
     </form>
 </div>
@@ -33,7 +34,7 @@ async function run(){
      })
      const data = await res.json();
     
-    console.log(req.body)
+    console.log(data)
 
     
     

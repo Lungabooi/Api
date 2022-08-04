@@ -20,6 +20,13 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/" + ".html")
 });
 
+app.get("/login", (req, res) => {
+    res.sendFile(__dirname + "/login" + ".html")
+});
+app.get("/index", (req, res) => {
+    res.sendFile(__dirname + "/index" + ".html")
+});
+
 app.use("/users", userRoute);
 
 app.use("/categories", categoriesRoute);
