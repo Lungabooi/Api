@@ -17,6 +17,10 @@
     </form>
 </div>
 <script>
+const mysql = require ('mysql')
+
+
+
  go.addEventListener('click', run);
 async function run(){
     let email = document.getElementById('email').value;
@@ -34,7 +38,9 @@ async function run(){
      })
      const data = await res.json();
     
-    console.log(data)
+    console.log(data); () => {
+        window.localStorage.setItem(token, )
+    }
 
     
     

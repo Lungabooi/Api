@@ -6,30 +6,6 @@ const jwt = require('jsonwebtoken');
 const middleware = require("../middleware/auth");
 const nodemailer = require('nodemailer');
 
-//adding nodemailer
-// const transporter = nodemailer.createTransport({
-//   host: 'smtp.ethereal.email',
-//   port: 587,
-//   auth: {
-//       user: 'magnolia.wilderman73@ethereal.email',
-//       pass: 'VYX1jVDzdVakJdPS3P'
-//   }
-// });
-
-// var mailOptions = {
-//   from: 'magnolia.wilderman73@ethereal.email',
-//   to: 'myfriend@yahoo.com',
-//   subject: 'Sending Email using Node.js',
-//   text: 'That was easy!'
-// };
-
-// transporter.sendMail(mailOptions, function(error, info){
-//   if (error) {
-//     console.log(error);
-//   } else {
-//     console.log('Email sent: ' + info.response);
-//   }
-// });
 
 router.get("/", (req, res) => {
     try {
@@ -69,7 +45,7 @@ router.post("/register", (req, res) => {
     let user = {
       full_name,
       email,
-      // We sending the hash value to be stored witin the table
+      // We sending the hash value to be stored within the table
       password:hash,
       user_type,
       phone,
